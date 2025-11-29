@@ -18,16 +18,16 @@ message PatientRegistrationRequest {
 }
 
 message PatientRegistrationResponse {
-  int64 patient_id = 1;
+  string patient_id = 1;
   string message = 2;
 }
 
 message PatientDetailsRequest {
-  int64 patient_id = 1;
+  string patient_id = 1;
 }
 
 message PatientDetails {
-  int64 patient_id = 1;
+  string patient_id = 1;
   string first_name = 2;
   string last_name = 3;
   string email = 4;

@@ -6,8 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 @Entity
-@Table(schema = "patient")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -15,11 +16,15 @@ import lombok.NoArgsConstructor;
 public class Patient {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
     private String firstName;
     private String lastName;
     private String email;
     private String phone;
     private String address;
+
+    @PrePersist
+    protected void onCreation(){
+        this.id = UUID.randomUUID().toString();
+    }
 }
